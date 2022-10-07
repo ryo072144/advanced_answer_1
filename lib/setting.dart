@@ -2,6 +2,7 @@ import 'package:advanced_exercise_1/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+//問２：　リストの要素を文字列からThemaDataに変更する。
 List<ThemeData> list = [ThemeData.light(), ThemeData.dark()];
 
 class Setting extends ConsumerWidget {
@@ -21,13 +22,13 @@ class Setting extends ConsumerWidget {
 
         //問２：　ドロップダウンメニューでテーマを切り替える。
         child: DropdownButton<ThemeData>(
+          //問２：　valueはthemProviderの状態を参照する。
           value: theme.state,
           elevation: 16,
           underline: Container(
             height: 2,
           ),
           onChanged: (ThemeData? value) {
-            // This is called when the user selects an item.
             theme.state = value!;
           },
           items: list.map<DropdownMenuItem<ThemeData>>((ThemeData value) {
